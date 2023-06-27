@@ -5,11 +5,11 @@
             <p class="alcohol-subtitle">{{ cocktail.strCategory }}</p>
             <img :src="cocktail.strDrinkThumb" alt="Image de présentation de l'alcool">
             <div class="desc-container">
-                <div v-if="strIngredients">
+                <div v-if="measures">
                     <b>Formats </b>
-                    <p>
+                    <div class="badge-container">
                         <span class="badge" v-for="measure in measures" :key="measure">{{ measure }}</span>
-                    </p>
+                    </div>
                 </div>
                 <div v-if="strIngredients">
                     <b>Ingrédients</b>
@@ -109,12 +109,18 @@ export default {
     border-radius: 25px;
 }
 
+
+.badge-container {
+    position: relative;
+}
 .badge {
+    display: inline-block;
     background-color: cadetblue;
-    padding: 0.2rem;
-    margin: 0 0.2rem 0.2em 0.2em;
-    word-break: break-all;
-    border-radius: 5px;
+    padding-inline: .6em;
+    padding: .25em .4em;
+    margin: .2em;
+    white-space: nowrap;
+    border-radius: .25rem;
 }
 
 .bounce-enter-active {
